@@ -11,7 +11,7 @@ LIBDIR  = ../lib
 TARGET  = $(BINDIR)/client_static
 LIB     = $(LIBDIR)/libmyutils.a
 
-# Objects
+# Objects that go into the library (no main.o)
 OBJS_LIB = \
   $(OBJDIR)/myfilefunctions.o \
   $(OBJDIR)/mystrfunctions.o
@@ -20,32 +20,32 @@ OBJ_MAIN = $(OBJDIR)/main.o
 
 .PHONY: all clean
 
-# Default build: library + executable
+# Default build: library + fully static executable
 all: $(LIB) $(TARGET)
 
-# Link final executable from main.o and the library
+# Link the final program fully static
 $(TARGET): $(OBJ_MAIN) $(LIB)
 	@mkdir -p $(BINDIR)
-	$(CC) $(OBJ_MAIN) -L$(LIBDIR) -lmyutils -o $(TARGET)
+	$(CC) -static $(OBJ_MAIN) -L$(LIBDIR) -lmyutils -o $(TARGET)
 
-# Build static library from object files
+# Create static library
 $(LIB): $(OBJS_LIB)
 	@mkdir -p $(LIBDIR)
 	ar rcs $(LIB) $(OBJS_LIB)
 
-# Explicit compile rules
+# Compile rules
 $(OBJDIR)/myfilefunctions.o: myfilefunctions.c
 	@mkdir -p $(OBJDIR)
-	$(CC) $(CFLAGS) -c myfilefunctions.c -o $(OBJDIR)/myfilefunctions.o
+	$(CC) $(CFLAGS) -c myfilefunctions.c -o $@
 
 $(OBJDIR)/mystrfunctions.o: mystrfunctions.c
 	@mkdir -p $(OBJDIR)
-	$(CC) $(CFLAGS) -c mystrfunctions.c -o $(OBJDIR)/mystrfunctions.o
+	$(CC) $(CFLAGS) -c mystrfunctions.c -o $@
 
 $(OBJDIR)/main.o: main.c
 	@mkdir -p $(OBJDIR)
-	$(CC) $(CFLAGS) -c main.c -o $(OBJDIR)/main.o
+	$(CC) $(CFLAGS) -c main.c -o $@
 
-# Clean build artifacts
+# Clean
 clean:
 	rm -f $(OBJDIR)/*.o $(TARGET) $(LIB)
