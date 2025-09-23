@@ -1,0 +1,18 @@
+.TH mygrep 3 "Sep 2025" "BSDSF23M039-OS-A01" "Library Functions Manual"
+.SH NAME
+mygrep \- collect lines that contain a substring
+.SH SYNOPSIS
+.nf
+.B #include "myfilefunctions.h"
+.B int mygrep(FILE *fp, const char *search_str, char ***matches);
+.fi
+.SH DESCRIPTION
+Reads lines from
+.I fp
+and stores matching lines (containing
+.I search_str
+) in a newly allocated array referenced by
+.I *matches
+. Returns the number of matches (>=0), or \-1 on error. Caller must free each line and the array.
+.SH AUTHOR
+Your Name <you@example.com>

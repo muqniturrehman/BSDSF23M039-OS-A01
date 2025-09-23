@@ -1,0 +1,15 @@
+.TH mystrlen 3 "Sep 2025" "BSDSF23M039-OS-A01" "Library Functions Manual"
+.SH NAME
+mystrlen \- return length of a C string
+.SH SYNOPSIS
+.nf
+.B #include "mystrfunctions.h"
+.B int mystrlen(const char *s);
+.fi
+.SH DESCRIPTION
+Returns the number of non\-NUL characters in the C string
+.I s
+(not including the terminating '\0').
+Returns 0 for an empty string.
+.SH AUTHOR
+Your Name <you@example.com>

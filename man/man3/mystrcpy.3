@@ -1,0 +1,18 @@
+.TH mystrcpy 3 "Sep 2025" "BSDSF23M039-OS-A01" "Library Functions Manual"
+.SH NAME
+mystrcpy \- copy a C string
+.SH SYNOPSIS
+.nf
+.B #include "mystrfunctions.h"
+.B int mystrcpy(char *dest, const char *src);
+.fi
+.SH DESCRIPTION
+Copies the NUL\-terminated string from
+.I src
+to
+.I dest
+and returns 0 on success, \-1 on invalid arguments. Caller must ensure
+.I dest
+has enough space.
+.SH AUTHOR
+Your Name <you@example.com>

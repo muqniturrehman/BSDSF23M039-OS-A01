@@ -1,0 +1,20 @@
+.TH wordCount 3 "Sep 2025" "BSDSF23M039-OS-A01" "Library Functions Manual"
+.SH NAME
+wordCount \- count lines, words, and characters in a file stream
+.SH SYNOPSIS
+.nf
+.B #include "myfilefunctions.h"
+.B int wordCount(FILE *file, int *lines, int *words, int *chars);
+.fi
+.SH DESCRIPTION
+Scans the stream
+.I file
+and writes counts to
+.I lines
+,
+.I words
+, and
+.I chars
+. Returns 0 on success, \-1 on invalid arguments. The function rewinds the stream before returning.
+.SH AUTHOR
+Your Name <you@example.com>

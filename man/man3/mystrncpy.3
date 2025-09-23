@@ -1,0 +1,18 @@
+.TH mystrncpy 3 "Sep 2025" "BSDSF23M039-OS-A01" "Library Functions Manual"
+.SH NAME
+mystrncpy \- copy up to N characters of a C string
+.SH SYNOPSIS
+.nf
+.B #include "mystrfunctions.h"
+.B int mystrncpy(char *dest, const char *src, int n);
+.fi
+.SH DESCRIPTION
+Copies up to
+.I n
+characters from
+.I src
+to
+.I dest
+and NUL\-terminates the result. Returns 0 on success, \-1 on invalid arguments.
+.SH AUTHOR
+Your Name <you@example.com>

@@ -1,0 +1,18 @@
+.TH mystrcat 3 "Sep 2025" "BSDSF23M039-OS-A01" "Library Functions Manual"
+.SH NAME
+mystrcat \- append a C string
+.SH SYNOPSIS
+.nf
+.B #include "mystrfunctions.h"
+.B int mystrcat(char *dest, const char *src);
+.fi
+.SH DESCRIPTION
+Appends
+.I src
+to the end of
+.I dest
+and returns 0 on success, \-1 on invalid arguments. Caller must ensure
+.I dest
+has enough space.
+.SH AUTHOR
+Your Name <you@example.com>
